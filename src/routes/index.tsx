@@ -7,6 +7,7 @@ import heroImage from "@/assets/red-ferrari-studio.jpg";
 import workImage from "@/assets/blue-bmw-detail.jpg";
 import coatingImage from "@/assets/paint-protection.jpg";
 import entranceImage from "@/assets/studio-entrance.jpg";
+import brandLogo from "@/assets/premium-wash-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -38,7 +39,7 @@ const washes = [
 ];
 
 function Brand() {
-  return <a href="#" className="brand" aria-label="Premium Auto — etusivu"><svg className="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M7 32V7h12c8 0 13 4 13 11s-5 11-13 11h-5v-7h5c4 0 6-1 6-4s-2-4-6-4h-5v18H7Z" fill="currentColor"/><path d="M5 35 35 5" stroke="var(--paper)" strokeWidth="2"/></svg><span>PREMIUM AUTO<small>AUTONHOIDON AMMATTILAISET</small></span></a>;
+  return <a href="#" className="brand" aria-label="Premium Auto — etusivu"><img className="brand-logo" src={brandLogo.url} alt="Premium Auto" width={500} height={300} /></a>;
 }
 function SectionLabel({ number, children }: { number: string; children: React.ReactNode }) {
   return <div className="section-label"><span>{number} /</span>{children}</div>;

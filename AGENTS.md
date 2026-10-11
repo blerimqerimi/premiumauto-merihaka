@@ -13,3 +13,4 @@
 - Keep the Premium Auto experience on the index route with section anchors, because this is a one-page website.
 - Define visual roles in the global stylesheet and reusable Button variants, so the monochrome design stays consistent.
 - Booking dialogs offer phone and email contact until an official booking URL is supplied; never simulate confirmed appointments.
+- Prebundle React and the page's Radix dependencies together in Vite, so late dependency optimization cannot split React hook dispatchers during preview hydration.

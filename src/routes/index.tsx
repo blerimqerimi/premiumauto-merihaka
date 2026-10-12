@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ArrowUpRight, ArrowDown, MapPin, Clock3, Menu, X, Play, Phone, Mail, Sparkles, Droplets, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import heroImage from "@/assets/red-ferrari-studio.jpg";
+import heroImage from "@/assets/hero-porsche.jpg.asset.json";
 import workImage from "@/assets/blue-bmw-detail.jpg";
 import coatingImage from "@/assets/paint-protection.jpg";
 import entranceImage from "@/assets/studio-entrance.jpg";
@@ -61,7 +61,7 @@ function Index() {
 
     <main>
       <section className="hero">
-        <img className="hero-image" src={heroImage} alt="Punainen Ferrari ammattimaisessa autonhoitostudiossa" width={1920} height={1024} fetchPriority="high" />
+        <img className="hero-image" src={heroImage.url} alt="Punainen Porsche Taycan vastapestynä autonhoitostudiossa" width={1920} height={1440} fetchPriority="high" />
         <div className="hero-content">
           <div className="eyebrow"><span className="status-dot" /> Premium Wash · Helsinki Merihaka</div>
           <h1>TÄYDEN PALVELUN<em>AUTONHOITO.</em></h1>

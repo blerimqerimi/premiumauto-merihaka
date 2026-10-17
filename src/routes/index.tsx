@@ -67,6 +67,15 @@ export const tirePriceRows: PriceRow[] = [
   { name: "RENGASHOTELLI/KAUSI", description: "-", prices: [90, 90, 90], time: "0 min", top: false },
 ];
 
+const otherPriceRows: PriceRow[] = [
+  { name: "Tuulilasin korjaus", description: "12kk takuu", prices: [60, 60, 60], time: "? min", top: false },
+  { name: "Otsonointi ja hajupoisto", description: "-", prices: [90, 90, 90], time: "? min", top: true },
+  { name: "Tuulilasin vaihto", description: "alk.", prices: [200, 250, 300], time: null, top: false },
+  { name: "Umpioiden korjaus", description: "-", prices: [60, 60, 60], time: null, top: false },
+  { name: "Ilmastoinnin täyttöhuolto", description: "-", prices: [75, 80, 85], time: "? min", top: false },
+  { name: "Maalipinnan kiillotus", description: "2 step kiillotus + käsinvahaus alk.", prices: [200, 250, 300], time: "?  min", top: false },
+];
+
 function Brand() {
   return <a href="#" className="brand" aria-label="Premium Auto — etusivu"><img className="brand-logo" src={brandLogo.url} alt="Premium Auto" width={500} height={300} /></a>;
 }
@@ -125,7 +134,7 @@ function Index() {
 
       <section className="section-wrap" id="palvelut"><SectionLabel number="04">Kaikki palvelut</SectionLabel><h2>AUTOSI TARPEET.<br />MEIDÄN PALVELUMME.</h2><div className="directory">{services.map((service, i) => <Button variant="ghost" className="directory-item" id={i === 4 ? "renkaat" : i === 6 ? "huolto" : undefined} key={service.name} onClick={() => setSelectedService(service)}><span className="directory-number">0{i + 1}</span><span className="directory-title">{service.name}<ArrowUpRight size={20} strokeWidth={1.2} /></span></Button>)}</div></section>
 
-      <PriceSection id="hinnasto" title="HINNAT PESUT." /><PriceSection id="hinnasto-2" title="HINNAT VAHAUKSET." rows={waxPriceRows} /><PriceSection id="hinnasto-3" title="HINNAT RENGASTYÖT." rows={tirePriceRows} /><PriceSection id="hinnasto-4" />
+      <PriceSection id="hinnasto" title="HINNAT PESUT." /><PriceSection id="hinnasto-2" title="HINNAT VAHAUKSET." rows={waxPriceRows} /><PriceSection id="hinnasto-3" title="HINNAT RENGASTYÖT." rows={tirePriceRows} /><PriceSection id="hinnasto-4" title="HINNAT MUUT." rows={otherPriceRows} />
 
       <section className="cta-banner"><div><h2>AUTOSI ANSAITSEE<br />PAREMPAA HUOLENPITOA.</h2><p>Valitse palvelu ja varaa aika muutamassa hetkessä.</p></div>{bookButton(true)}</section>
 

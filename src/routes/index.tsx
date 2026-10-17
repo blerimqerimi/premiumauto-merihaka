@@ -42,9 +42,9 @@ const washes = [
 const priceRows: { name: string; description: string; prices: number[] | null; time: string | null; top: boolean }[] = [
   { name: "Peruspesu", description: "Käsinpesu, ovienvälit ja kumimattojen pesu.", prices: [29, 34, 49], time: "25 min", top: false },
   { name: "Premiumpesu", description: "Peruspesu ja maalipinnan liuotinpesu.", prices: [39, 44, 52], time: "25 min", top: true },
-  { name: "Nanopesu", description: "Liuotinpesu ja pikavahaus, ovienvälit ja matot.", prices: [39, 49, 59], time: "25 min", top: false },
-  { name: "Nanopesu", description: "Liuotinpesu ja pikavahaus, ovienvälit ja matot.", prices: [39, 49, 59], time: "25 min", top: false },
-  { name: "Nanopesu", description: "Liuotinpesu ja pikavahaus, ovienvälit ja matot.", prices: [39, 49, 59], time: "25 min", top: false },
+  { name: "Kevyt Sisäpuhdistus", description: "Lattian, penkkien ja mattojen imurointi sekä kojelaudan pyyhintäpalvelu", prices: [29, 29, 29], time: null, top: false },
+  { name: "Täydellinen Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus\nLemmikkieläinten karvojen poisto alk. 20€", prices: [49, 59, 69], time: "45 min", top: false },
+  { name: "Total Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus, istuimien märkäpesu", prices: [159, 179, 159], time: "60 min", top: false },
   { name: "Nanopesu", description: "Liuotinpesu ja pikavahaus, ovienvälit ja matot.", prices: [39, 49, 59], time: "25 min", top: false },
   { name: "Sisäpuhdistus", description: "Raikas sisätila: imurointi, pintojen puhdistus ja matot.", prices: null, time: null, top: false },
   { name: "Nanovaha", description: "Nopea nanovaha antaa maalipinnalle kiiltoa ja suojaa.", prices: null, time: null, top: false },

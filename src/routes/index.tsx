@@ -46,7 +46,6 @@ const priceRows: { name: string; description: string; prices: number[] | null; t
   { name: "Kevyt Sisäpuhdistus", description: "Lattian, penkkien ja mattojen imurointi sekä kojelaudan pyyhintäpalvelu", prices: [29, 29, 29], time: null, top: false },
   { name: "Täydellinen Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus\nLemmikkieläinten karvojen poisto alk. 20€", prices: [49, 59, 69], time: "45 min", top: false },
   { name: "Total Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus, istuimien märkäpesu", prices: [159, 179, 159], time: "60 min", top: false },
-  { name: "Sisäpuhdistus", description: "Raikas sisätila: imurointi, pintojen puhdistus ja matot.", prices: null, time: null, top: false },
   { name: "Nanovaha", description: "Nopea nanovaha antaa maalipinnalle kiiltoa ja suojaa.", prices: null, time: null, top: false },
   { name: "Kovavaha", description: "Pitkesti kestävä suojakerros. Pohjatyöt sisältyvät palveluun.", prices: null, time: null, top: false },
   { name: "Rengastyöt", description: "Rengastyöt saman katon alta. Kerro autosi tiedot, niin sovitaan aika.", prices: null, time: null, top: false },

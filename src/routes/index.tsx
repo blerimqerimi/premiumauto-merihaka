@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, ArrowDown, MapPin, Clock3, Menu, X, Play, Phone, Mail, Sparkles, Droplets, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, ArrowDown, MapPin, Clock3, Menu, X, Play, Mail, Sparkles, Droplets, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import heroImage from "@/assets/hero-porsche.jpg.asset.json";
@@ -21,6 +21,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const bookingUrl = "https://varaapalvelu.fi/premium-wash/ajanvaraus/";
 const navigation = [ ["Palvelut", "palvelut"], ["Pesut", "pesut"], ["Pinnoitteet", "pinnoitteet"], ["Renkaat", "renkaat"], ["Huolto", "huolto"], ["Yhteystiedot", "yhteystiedot"] ];
 const services = [
   { name: "Pesut", description: "Huolellinen käsinpesu auton ulkopinnoille. Peruspesu 29 € ja Premiumpesu 34 € henkilöautolle." },
@@ -47,9 +48,8 @@ function SectionLabel({ number, children }: { number: string; children: React.Re
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [booking, setBooking] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<(typeof services)[number] | null>(null);
-  const bookButton = (service = "Autonhoito", dark = false) => <Button variant={dark ? "premiumDark" : "premium"} size="premium" onClick={() => setBooking(service)}>Varaa aika <ArrowUpRight size={16} /></Button>;
+  const bookButton = (dark = false) => <Button variant={dark ? "premiumDark" : "premium"} size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa aika <ArrowUpRight size={16} /></a></Button>;
   return <>
     <header className="site-header">
       <Brand />
@@ -76,7 +76,7 @@ function Index() {
       <section className="section-wrap" id="pesut">
         <SectionLabel number="01">Puhtaampi lähtö</SectionLabel>
         <div className="section-heading"><h2>SUOSITUIMMAT PALVELUT.</h2><p>Valitse autollesi sopiva hoito.<br />Me huolehdimme lopusta.</p></div>
-        <div className="service-cards">{washes.map((wash, i) => <article className="service-card" key={wash.name}><div className="service-card-top"><span>0{i + 1} / AUTONHOITO</span><wash.icon size={20} strokeWidth={1.2} /></div><h3>{wash.name}</h3><p>{wash.description}</p><div className="service-price">{wash.price ? <><strong>{wash.price} €</strong><small>Henkilöauto</small></> : <strong className="custom-price">Katso hinta ajanvarauksesta</strong>}</div><Button variant="premiumOutline" size="premium" onClick={() => setBooking(wash.name)}>Varaa aika <ArrowUpRight /></Button></article>)}</div>
+        <div className="service-cards">{washes.map((wash, i) => <article className="service-card" key={wash.name}><div className="service-card-top"><span>0{i + 1} / AUTONHOITO</span><wash.icon size={20} strokeWidth={1.2} /></div><h3>{wash.name}</h3><p>{wash.description}</p><div className="service-price">{wash.price ? <><strong>{wash.price} €</strong><small>Henkilöauto</small></> : <strong className="custom-price">Katso hinta ajanvarauksesta</strong>}</div><Button variant="premiumOutline" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa aika <ArrowUpRight /></a></Button></article>)}</div>
       </section>
 
       <section className="split-feature">
@@ -93,7 +93,7 @@ function Index() {
 
       <section className="section-wrap" id="palvelut"><SectionLabel number="04">Kaikki palvelut</SectionLabel><h2>AUTOSI TARPEET.<br />MEIDÄN PALVELUMME.</h2><div className="directory">{services.map((service, i) => <Button variant="ghost" className="directory-item" id={i === 4 ? "renkaat" : i === 6 ? "huolto" : undefined} key={service.name} onClick={() => setSelectedService(service)}><span className="directory-number">0{i + 1}</span><span className="directory-title">{service.name}<ArrowUpRight size={20} strokeWidth={1.2} /></span></Button>)}</div></section>
 
-      <section className="section-wrap" id="hinnasto"><SectionLabel number="—">Hinnasto</SectionLabel><h2>PESUT.<br />HINNAT AUTON KOON MUKAAN.</h2><p className="section-copy">alk. 34 € · 25 min</p><div className="price-list">{[["Peruspesu","Käsinpesu, ovienvälit ja kumimattojen pesu.",[34,39,47],false],["Premiumpesu","Peruspesu ja maalipinnan liuotinpesu.",[39,44,52],true],["Kausipesu","Liuotinpesu ja pikavahaus, ovienvälit ja matot.",[49,54,62],false]].map(([name, desc, prices, top]) => <div className={`price-row${top ? " is-top" : ""}`} key={name as string}><div className="price-info"><h3>{(name as string).toUpperCase()}{top ? <span className="price-badge">Suosituin</span> : null}</h3><p>{desc as string}</p><span className="price-time">25 min</span></div><div className="price-sizes">{(prices as number[]).map((v, i) => <div key={i}><small>{["Henkilöauto","Farmari / SUV","Pakettiauto"][i]}</small><strong>{v} €</strong></div>)}</div><Button variant="premium" size="premium" onClick={() => setBooking(name as string)}>Varaa <ArrowUpRight size={16} /></Button></div>)}</div></section>
+      <section className="section-wrap" id="hinnasto"><SectionLabel number="—">Hinnasto</SectionLabel><h2>PESUT.<br />HINNAT AUTON KOON MUKAAN.</h2><p className="section-copy">alk. 34 € · 25 min</p><div className="price-list">{[["Peruspesu","Käsinpesu, ovienvälit ja kumimattojen pesu.",[34,39,47],false],["Premiumpesu","Peruspesu ja maalipinnan liuotinpesu.",[39,44,52],true],["Kausipesu","Liuotinpesu ja pikavahaus, ovienvälit ja matot.",[49,54,62],false]].map(([name, desc, prices, top]) => <div className={`price-row${top ? " is-top" : ""}`} key={name as string}><div className="price-info"><h3>{(name as string).toUpperCase()}{top ? <span className="price-badge">Suosituin</span> : null}</h3><p>{desc as string}</p><span className="price-time">25 min</span></div><div className="price-sizes">{(prices as number[]).map((v, i) => <div key={i}><small>{["Henkilöauto","Farmari / SUV","Pakettiauto"][i]}</small><strong>{v} €</strong></div>)}</div><Button variant="premium" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa <ArrowUpRight size={16} /></a></Button></div>)}</div></section>
 
       <section className="cta-banner"><div><h2>AUTOSI ANSAITSEE<br />PAREMPAA HUOLENPITOA.</h2><p>Valitse palvelu ja varaa aika muutamassa hetkessä.</p></div>{bookButton(true)}</section>
 
@@ -102,7 +102,6 @@ function Index() {
 
      <footer className="site-footer"><div className="footer-main"><div><Brand /><p>Täyden palvelun autonhoito.<br />Helsingin Merihaassa.</p></div><div><h4>LÖYDÄ MEIDÄT</h4><p>Haapaniemenkatu 7–9<br />00530 Helsinki</p><a href="tel:+358442400064">+358 44 240 00 64</a><br /><a href="mailto:info@premiumwash.fi">info@premiumwash.fi</a></div><div><h4>AUKIOLOAJAT</h4><p>Ma–Pe 8:00–18:00<br />La 10:00–17:00<br />Su 12:00–17:00*</p><p>* Rengassesongin aikana</p></div><div><h4>PIKALINKIT</h4><div className="footer-links">{navigation.slice(0, 4).map(([label, anchor]) => <a href={`#${anchor}`} key={anchor}>{label}</a>)}</div></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} PREMIUM AUTO</span><span>Y-tunnus: 3349811-6</span><a href="https://premiumwash.fi" target="_blank" rel="noopener noreferrer">Alku ↗</a></div></footer>
 
-    <Dialog open={booking !== null} onOpenChange={open => { if (!open) setBooking(null); }}><DialogContent className="booking-dialog"><DialogTitle>VARAA AIKA.</DialogTitle><DialogDescription>Ota yhteyttä, niin sovitaan autollesi sopiva aika.</DialogDescription><div className="booking-service">{booking}</div><div className="booking-options"><Button variant="premium" size="premium" asChild><a href="tel:+358442400064"><Phone />Soita +358 44 240 00 64<ArrowUpRight /></a></Button><Button variant="premiumOutline" size="premium" asChild><a href={`mailto:info@premiumwash.fi?subject=${encodeURIComponent(`Ajanvaraus: ${booking ?? "Autonhoito"}`)}`}><Mail />Varaa sähköpostitse<ArrowUpRight /></a></Button></div></DialogContent></Dialog>
-    <Dialog open={selectedService !== null} onOpenChange={open => { if (!open) setSelectedService(null); }}><DialogContent className="booking-dialog"><DialogTitle>{selectedService?.name.toUpperCase()}</DialogTitle><DialogDescription>{selectedService?.description}</DialogDescription><div className="booking-options"><Button variant="premium" size="premium" onClick={() => { const name = selectedService?.name; setSelectedService(null); setBooking(name ?? "Autonhoito"); }}>Varaa aika <ArrowUpRight /></Button><Button variant="premiumOutline" size="premium" asChild><a href="mailto:info@premiumwash.fi">Kysy lisää <Mail /></a></Button></div></DialogContent></Dialog>
+    <Dialog open={selectedService !== null} onOpenChange={open => { if (!open) setSelectedService(null); }}><DialogContent className="booking-dialog"><DialogTitle>{selectedService?.name.toUpperCase()}</DialogTitle><DialogDescription>{selectedService?.description}</DialogDescription><div className="booking-options"><Button variant="premium" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa aika <ArrowUpRight /></a></Button><Button variant="premiumOutline" size="premium" asChild><a href="mailto:info@premiumwash.fi">Kysy lisää <Mail /></a></Button></div></DialogContent></Dialog>
   </>;
 }

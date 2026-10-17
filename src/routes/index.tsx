@@ -39,7 +39,8 @@ const washes = [
   { name: "KOVAVAHA", description: "Maalipinnan suojaus. Pohjatyöt sisältyvät.", price: null, icon: ShieldCheck },
 ];
 
-const priceRows: { name: string; description: string; prices: number[] | null; time: string | null; top: boolean }[] = [
+type PriceRow = { name: string; description: string; prices: (number | string)[] | null; time: string | null; top: boolean; badge?: string };
+const priceRows: PriceRow[] = [
   { name: "Peruspesu", description: "Käsinpesu, ovienvälit ja kumimattojen pesu.", prices: [29, 34, 49], time: "25 min", top: false },
   { name: "Premiumpesu", description: "Peruspesu ja maalipinnan liuotinpesu.", prices: [39, 44, 52], time: "25 min", top: true },
   { name: "Nano Pesu", description: "Uusi palvelu!", prices: [39, 49, 59], time: null, top: false },
@@ -48,14 +49,32 @@ const priceRows: { name: string; description: string; prices: number[] | null; t
   { name: "Total Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus, istuimien märkäpesu", prices: [159, 179, 159], time: "60 min", top: false },
 ];
 
+export const waxPriceRows: PriceRow[] = [
+  { name: "POLYMATRIX", description: "Kesto 3-5kk", prices: [85, "95€", 95], time: "25 min", top: false },
+  { name: "KOVAVAHA", description: "Kesto 6kk vuosi", prices: [120, 140, 160], time: "60 min", top: true, badge: "SUOSITUIN" },
+  { name: "NANO VAHA", description: "Kesto 12-18kk", prices: [150, 170, 190], time: null, top: false },
+  { name: "MAALIPINNAN KIILLOTUS", description: "-", prices: ["? €", "? €", "? €"], time: null, top: false },
+  { name: "KERAAMINEN PIINOITE", description: "-", prices: ["? €", "? €", "? €"], time: "? min", top: false },
+  { name: "MYLLYTYS", description: "-", prices: ["? €", "? €", "? €"], time: "? min", top: false },
+];
+
+export const tirePriceRows: PriceRow[] = [
+  { name: "RENKAIDEN ALLEVAIHTO", description: "-", prices: [30, 35, 40], time: "25 min", top: false },
+  { name: "TUBELESS/RENGASPAIKKAUS", description: "-", prices: [35, 35, 35], time: "25 min", top: true, badge: "SUOSITUIN" },
+  { name: "TASAPAINOTUS", description: "-", prices: [45, 45, 45], time: null, top: false },
+  { name: "RENKAIDEN PESU", description: "-", prices: [15, 15, 15], time: null, top: false },
+  { name: "VANNETYÖ", description: "Irtorenkaiden allevaihto + tasapainotus", prices: [99, 99, 99], time: "- min", top: false },
+  { name: "RENGASHOTELLI/KAUSI", description: "-", prices: [90, 90, 90], time: "0 min", top: false },
+];
+
 function Brand() {
   return <a href="#" className="brand" aria-label="Premium Auto — etusivu"><img className="brand-logo" src={brandLogo.url} alt="Premium Auto" width={500} height={300} /></a>;
 }
 function SectionLabel({ number, children }: { number: string; children: React.ReactNode }) {
   return <div className="section-label"><span>{number} /</span>{children}</div>;
 }
-function PriceSection({ id }: { id: string }) {
-  return <section className="section-wrap" id={id}><SectionLabel number="—">Hinnasto</SectionLabel><h2>HINNAT AUTON KOON MUKAAN.</h2><p className="section-copy">alk. 34 € · 25 min</p><div className="price-list">{priceRows.map((row, i) => <div className={`price-row${row.top ? " is-top" : ""}`} key={`${row.name}-${i}`}><div className="price-info"><h3>{row.name.toUpperCase()}{row.top ? <span className="price-badge">Suosituin</span> : null}</h3><p>{row.description}</p>{row.time ? <span className="price-time">{row.time}</span> : null}</div>{row.prices ? <div className="price-sizes">{row.prices.map((v, i) => <div key={i}><small>{["Henkilöauto","Farmari / SUV","Pakettiauto"][i]}</small><strong>{v} €</strong></div>)}</div> : <div className="price-sizes"><div className="price-ask"><small>Kesto ja hinta sovitaan</small><strong>Kysy hinta</strong></div></div>}<Button variant="premium" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa <ArrowUpRight size={16} /></a></Button></div>)}</div></section>;
+function PriceSection({ id, title = "HINNAT AUTON KOON MUKAAN.", rows = priceRows }: { id: string; title?: string; rows?: PriceRow[] }) {
+  return <section className="section-wrap" id={id}><SectionLabel number="—">Hinnasto</SectionLabel><h2>{title}</h2><p className="section-copy">alk. 34 € · 25 min</p><div className="price-list">{rows.map((row, i) => <div className={`price-row${row.top ? " is-top" : ""}`} key={`${row.name}-${i}`}><div className="price-info"><h3>{row.name.toUpperCase()}{row.top ? <span className="price-badge">{row.badge ?? "Suosituin"}</span> : null}</h3><p>{row.description}</p>{row.time ? <span className="price-time">{row.time}</span> : null}</div>{row.prices ? <div className="price-sizes">{row.prices.map((v, i) => <div key={i}><small>{["Henkilöauto","Farmari / SUV","Pakettiauto"][i]}</small><strong>{typeof v === "string" ? v : `${v} €`}</strong></div>)}</div> : <div className="price-sizes"><div className="price-ask"><small>Kesto ja hinta sovitaan</small><strong>Kysy hinta</strong></div></div>}<Button variant="premium" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa <ArrowUpRight size={16} /></a></Button></div>)}</div></section>;
 }
 
 
@@ -106,7 +125,7 @@ function Index() {
 
       <section className="section-wrap" id="palvelut"><SectionLabel number="04">Kaikki palvelut</SectionLabel><h2>AUTOSI TARPEET.<br />MEIDÄN PALVELUMME.</h2><div className="directory">{services.map((service, i) => <Button variant="ghost" className="directory-item" id={i === 4 ? "renkaat" : i === 6 ? "huolto" : undefined} key={service.name} onClick={() => setSelectedService(service)}><span className="directory-number">0{i + 1}</span><span className="directory-title">{service.name}<ArrowUpRight size={20} strokeWidth={1.2} /></span></Button>)}</div></section>
 
-      <PriceSection id="hinnasto" /><PriceSection id="hinnasto-2" /><PriceSection id="hinnasto-3" /><PriceSection id="hinnasto-4" />
+      <PriceSection id="hinnasto" title="HINNAT PESUT." /><PriceSection id="hinnasto-2" title="HINNAT VAHAUKSET." rows={waxPriceRows} /><PriceSection id="hinnasto-3" title="HINNAT RENGASTYÖT." rows={tirePriceRows} /><PriceSection id="hinnasto-4" />
 
       <section className="cta-banner"><div><h2>AUTOSI ANSAITSEE<br />PAREMPAA HUOLENPITOA.</h2><p>Valitse palvelu ja varaa aika muutamassa hetkessä.</p></div>{bookButton(true)}</section>
 

@@ -4,4 +4,4 @@
 - [x] Verify page and interactions — routing test and desktop/mobile browser checks passed
 - [x] Connect official showcase video — YouTube link now opens from the "Katso YouTubessa" button
 - [x] Owner photos in place of stock imagery (hero Porsche, reception photo, Merihaka wash bay photo)
-- [ ] Connect official booking URL — awaiting URL from owner
+- [x] Connect official booking URL — all "Varaa aika" / "Varaa" buttons open https://varaapalvelu.fi/premium-wash/ajanvaraus/

@@ -3,11 +3,11 @@ import { useState } from "react";
 import { ArrowUpRight, ArrowDown, MapPin, Clock3, Menu, X, Play, Mail, Sparkles, Droplets, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import heroImage from "@/assets/hero-porsche.jpg.asset.json";
-import workImage from "@/assets/kahvi.jpg.asset.json";
+import heroImage from "@/assets/hero-porsche.jpg";
+import workImage from "@/assets/kahvi.jpg";
 import coatingImage from "@/assets/paint-protection.jpg";
-import entranceImage from "@/assets/merihaka.jpg.asset.json";
-import brandLogo from "@/assets/premium-wash-logo.png.asset.json";
+import entranceImage from "@/assets/merihaka.jpg";
+import brandLogo from "@/assets/premium-wash-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -77,7 +77,7 @@ const otherPriceRows: PriceRow[] = [
 ];
 
 function Brand() {
-  return <a href="#" className="brand" aria-label="Premium Auto — etusivu"><img className="brand-logo" src={brandLogo.url} alt="Premium Auto" width={500} height={300} /></a>;
+  return <a href="#" className="brand" aria-label="Premium Auto — etusivu"><img className="brand-logo" src={brandLogo} alt="Premium Auto" width={500} height={300} /></a>;
 }
 function SectionLabel({ number, children }: { number: string; children: React.ReactNode }) {
   return <div className="section-label"><span>{number} /</span>{children}</div>;
@@ -101,7 +101,7 @@ function Index() {
 
     <main>
       <section className="hero">
-        <img className="hero-image" src={heroImage.url} alt="Punainen Porsche Taycan vastapestynä autonhoitostudiossa" width={1920} height={1440} fetchPriority="high" />
+        <img className="hero-image" src={heroImage} alt="Punainen Porsche Taycan vastapestynä autonhoitostudiossa" width={1920} height={1440} fetchPriority="high" />
         <div className="hero-content">
           <div className="eyebrow"><span className="status-dot" /> Premium Wash · Helsinki Merihaka</div>
           <h1>TÄYDEN PALVELUN<em>AUTONHOITO.</em></h1>
@@ -121,7 +121,7 @@ function Index() {
       </section>
 
       <section className="split-feature">
-        <div className="feature-image"><img src={workImage.url} alt="Premium Auton vastaanotto- ja odotustila, jossa palveluiden hinnasto on seinällä" loading="lazy" width={1905} height={1072} /><Button className="video-pill" variant="ghost" asChild><a href="https://www.youtube.com/watch?v=lQsI5fR2dIU" target="_blank" rel="noopener noreferrer"><Play size={17} fill="currentColor" /><span>MEIDÄN TYÖT VIDEOLLA<small>Katso YouTubessa ↗</small></span></a></Button></div>
+        <div className="feature-image"><img src={workImage} alt="Premium Auton vastaanotto- ja odotustila, jossa palveluiden hinnasto on seinällä" loading="lazy" width={1905} height={1072} /><Button className="video-pill" variant="ghost" asChild><a href="https://www.youtube.com/watch?v=lQsI5fR2dIU" target="_blank" rel="noopener noreferrer"><Play size={17} fill="currentColor" /><span>MEIDÄN TYÖT VIDEOLLA<small>Katso YouTubessa ↗</small></span></a></Button></div>
         <div className="feature-content"><SectionLabel number="02">Työn jälki</SectionLabel><h2>MEIDÄN TYÖMME<br />PUHUVAT<br />PUOLESTAAN.</h2><p className="section-copy">Huolellinen käsityö. Viimeistelty lopputulos. Meille jokainen auto ansaitsee saman huomion — merkistä ja mallista riippumatta.</p><div className="location-label"><MapPin size={13} /> PREMIUM AUTO / MERIHAKA, HELSINKI</div></div>
       </section>
 
@@ -138,7 +138,7 @@ function Index() {
 
       <section className="cta-banner"><div><h2>AUTOSI ANSAITSEE<br />PAREMPAA HUOLENPITOA.</h2><p>Valitse palvelu ja varaa aika muutamassa hetkessä.</p></div>{bookButton(true)}</section>
 
-      <section className="section-wrap contact-section" id="yhteystiedot"><div><SectionLabel number="05">Löydät meidät täältä</SectionLabel><h2>NÄHDÄÄN<br />MERIHAASSA.</h2><div className="contact-details"><div><div className="detail-label">Tervetuloa meille</div><p>Haapaniemenkatu 7–9<br />00530 Helsinki</p><a href="tel:+358442400064">+358 44 240 00 64</a><br /><a href="mailto:info@premiumwash.fi">info@premiumwash.fi</a></div><div><div className="detail-label">Aukioloajat</div><div className="opening-row"><span>Ma–Pe</span><span>8:00–18:00</span></div><div className="opening-row"><span>La</span><span>10:00–17:00</span></div><div className="opening-row"><span>Su</span><span>12:00–17:00*</span></div><div className="season-note">* Rengassesongin aikana</div></div></div></div><div className="contact-image"><img src={entranceImage.url} alt="Premium Auton pesutila Helsingin Merihaassa, avoimesta ovesta näkyy pysäköintihalli" loading="lazy" width={1905} height={1072} /><div className="map-panel"><div><span>HELSINKI / MERIHAKA</span><p>Haapaniemenkatu 7–9</p></div><Button variant="premium" size="premium" asChild><a href="https://www.google.com/maps/search/?api=1&query=Haapaniemenkatu+7-9+00530+Helsinki" target="_blank" rel="noopener noreferrer">Reittiohjeet <ArrowUpRight /></a></Button></div></div></section>
+      <section className="section-wrap contact-section" id="yhteystiedot"><div><SectionLabel number="05">Löydät meidät täältä</SectionLabel><h2>NÄHDÄÄN<br />MERIHAASSA.</h2><div className="contact-details"><div><div className="detail-label">Tervetuloa meille</div><p>Haapaniemenkatu 7–9<br />00530 Helsinki</p><a href="tel:+358442400064">+358 44 240 00 64</a><br /><a href="mailto:info@premiumwash.fi">info@premiumwash.fi</a></div><div><div className="detail-label">Aukioloajat</div><div className="opening-row"><span>Ma–Pe</span><span>8:00–18:00</span></div><div className="opening-row"><span>La</span><span>10:00–17:00</span></div><div className="opening-row"><span>Su</span><span>12:00–17:00*</span></div><div className="season-note">* Rengassesongin aikana</div></div></div></div><div className="contact-image"><img src={entranceImage} alt="Premium Auton pesutila Helsingin Merihaassa, avoimesta ovesta näkyy pysäköintihalli" loading="lazy" width={1905} height={1072} /><div className="map-panel"><div><span>HELSINKI / MERIHAKA</span><p>Haapaniemenkatu 7–9</p></div><Button variant="premium" size="premium" asChild><a href="https://www.google.com/maps/search/?api=1&query=Haapaniemenkatu+7-9+00530+Helsinki" target="_blank" rel="noopener noreferrer">Reittiohjeet <ArrowUpRight /></a></Button></div></div></section>
     </main>
 
      <footer className="site-footer"><div className="footer-main"><div><Brand /><p>Täyden palvelun autonhoito.<br />Helsingin Merihaassa.</p></div><div><h4>LÖYDÄ MEIDÄT</h4><p>Haapaniemenkatu 7–9<br />00530 Helsinki</p><a href="tel:+358442400064">+358 44 240 00 64</a><br /><a href="mailto:info@premiumwash.fi">info@premiumwash.fi</a></div><div><h4>AUKIOLOAJAT</h4><p>Ma–Pe 8:00–18:00<br />La 10:00–17:00<br />Su 12:00–17:00*</p><p>* Rengassesongin aikana</p></div><div><h4>PIKALINKIT</h4><div className="footer-links">{navigation.slice(0, 4).map(([label, anchor]) => <a href={`#${anchor}`} key={anchor}>{label}</a>)}</div></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} PREMIUM AUTO</span><span>Y-tunnus: 3349811-6</span><a href="https://premiumwash.fi" target="_blank" rel="noopener noreferrer">Alku ↗</a></div></footer>

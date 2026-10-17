@@ -42,7 +42,7 @@ const washes = [
 const priceRows: { name: string; description: string; prices: number[] | null; time: string | null; top: boolean }[] = [
   { name: "Peruspesu", description: "Käsinpesu, ovienvälit ja kumimattojen pesu.", prices: [29, 34, 49], time: "25 min", top: false },
   { name: "Premiumpesu", description: "Peruspesu ja maalipinnan liuotinpesu.", prices: [39, 44, 52], time: "25 min", top: true },
-  { name: "Kevyt Sisäpuhdistus", description: "Lattian, penkkien ja mattojen imurointi sekä kojelaudan pyyhintäpalvelu", prices: [29, 29, 29], time: null, top: false },
+  { name: "Nano Pesu", description: "Uusi palvelu!", prices: [39, 49, 59], time: null, top: false },
   { name: "Kevyt Sisäpuhdistus", description: "Lattian, penkkien ja mattojen imurointi sekä kojelaudan pyyhintäpalvelu", prices: [29, 29, 29], time: null, top: false },
   { name: "Täydellinen Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus\nLemmikkieläinten karvojen poisto alk. 20€", prices: [49, 59, 69], time: "45 min", top: false },
   { name: "Total Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus, istuimien märkäpesu", prices: [159, 179, 159], time: "60 min", top: false },

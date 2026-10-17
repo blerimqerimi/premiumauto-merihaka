@@ -5,3 +5,4 @@
 - [x] Connect official showcase video — YouTube link now opens from the "Katso YouTubessa" button
 - [x] Owner photos in place of stock imagery (hero Porsche, reception photo, Merihaka wash bay photo)
 - [x] Connect official booking URL — all "Varaa aika" / "Varaa" buttons open https://varaapalvelu.fi/premium-wash/ajanvaraus/
+- [ ] Prices and durations for the five new hinnasto cards (Sisäpuhdistus, Nanovaha, Kovavaha, Rengastyöt, Muut palvelut) — waiting for the owner's numbers; cards show "Kysy hinta" until then

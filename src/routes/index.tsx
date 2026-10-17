@@ -4,7 +4,7 @@ import { ArrowUpRight, ArrowDown, MapPin, Clock3, Menu, X, Play, Phone, Mail, Sp
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import heroImage from "@/assets/hero-porsche.jpg.asset.json";
-import workImage from "@/assets/blue-bmw-detail.jpg";
+import workImage from "@/assets/kahvi.jpg.asset.json";
 import coatingImage from "@/assets/paint-protection.jpg";
 import entranceImage from "@/assets/studio-entrance.jpg";
 import brandLogo from "@/assets/premium-wash-logo.png.asset.json";
@@ -49,7 +49,6 @@ function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [booking, setBooking] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<(typeof services)[number] | null>(null);
-  const [videoOpen, setVideoOpen] = useState(false);
   const bookButton = (service = "Autonhoito", dark = false) => <Button variant={dark ? "premiumDark" : "premium"} size="premium" onClick={() => setBooking(service)}>Varaa aika <ArrowUpRight size={16} /></Button>;
   return <>
     <header className="site-header">
@@ -81,7 +80,7 @@ function Index() {
       </section>
 
       <section className="split-feature">
-        <div className="feature-image"><img src={workImage} alt="Kiiltävä sininen BMW huolellisen autonhoidon jälkeen" loading="lazy" width={1200} height={1024} /><Button className="video-pill" variant="ghost" onClick={() => setVideoOpen(true)}><Play size={17} fill="currentColor" /><span>MEIDÄN TYÖT VIDEOLLA<small>Katso YouTubessa ↗</small></span></Button></div>
+        <div className="feature-image"><img src={workImage.url} alt="Premium Auton vastaanotto- ja odotustila, jossa palveluiden hinnasto on seinällä" loading="lazy" width={1905} height={1072} /><Button className="video-pill" variant="ghost" asChild><a href="https://www.youtube.com/watch?v=lQsI5fR2dIU" target="_blank" rel="noopener noreferrer"><Play size={17} fill="currentColor" /><span>MEIDÄN TYÖT VIDEOLLA<small>Katso YouTubessa ↗</small></span></a></Button></div>
         <div className="feature-content"><SectionLabel number="02">Työn jälki</SectionLabel><h2>MEIDÄN TYÖMME<br />PUHUVAT<br />PUOLESTAAN.</h2><p className="section-copy">Huolellinen käsityö. Viimeistelty lopputulos. Meille jokainen auto ansaitsee saman huomion — merkistä ja mallista riippumatta.</p><div className="location-label"><MapPin size={13} /> PREMIUM AUTO / MERIHAKA, HELSINKI</div></div>
       </section>
 
@@ -103,6 +102,5 @@ function Index() {
 
     <Dialog open={booking !== null} onOpenChange={open => { if (!open) setBooking(null); }}><DialogContent className="booking-dialog"><DialogTitle>VARAA AIKA.</DialogTitle><DialogDescription>Ota yhteyttä, niin sovitaan autollesi sopiva aika.</DialogDescription><div className="booking-service">{booking}</div><div className="booking-options"><Button variant="premium" size="premium" asChild><a href="tel:+358442400064"><Phone />Soita +358 44 240 00 64<ArrowUpRight /></a></Button><Button variant="premiumOutline" size="premium" asChild><a href={`mailto:info@premiumwash.fi?subject=${encodeURIComponent(`Ajanvaraus: ${booking ?? "Autonhoito"}`)}`}><Mail />Varaa sähköpostitse<ArrowUpRight /></a></Button></div></DialogContent></Dialog>
     <Dialog open={selectedService !== null} onOpenChange={open => { if (!open) setSelectedService(null); }}><DialogContent className="booking-dialog"><DialogTitle>{selectedService?.name.toUpperCase()}</DialogTitle><DialogDescription>{selectedService?.description}</DialogDescription><div className="booking-options"><Button variant="premium" size="premium" onClick={() => { const name = selectedService?.name; setSelectedService(null); setBooking(name ?? "Autonhoito"); }}>Varaa aika <ArrowUpRight /></Button><Button variant="premiumOutline" size="premium" asChild><a href="mailto:info@premiumwash.fi">Kysy lisää <Mail /></a></Button></div></DialogContent></Dialog>
-    <Dialog open={videoOpen} onOpenChange={setVideoOpen}><DialogContent className="booking-dialog"><DialogTitle>MEIDÄN TYÖT VIDEOLLA.</DialogTitle><DialogDescription>Virallinen esittelyvideo lisätään pian. Tutustu sillä välin Premium Washin sivustoon.</DialogDescription><Button variant="premium" size="premium" asChild><a href="https://premiumwash.fi" target="_blank" rel="noopener noreferrer">Premium Wash <ArrowUpRight /></a></Button></DialogContent></Dialog>
   </>;
 }

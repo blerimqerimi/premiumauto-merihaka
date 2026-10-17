@@ -54,6 +54,10 @@ function Brand() {
 function SectionLabel({ number, children }: { number: string; children: React.ReactNode }) {
   return <div className="section-label"><span>{number} /</span>{children}</div>;
 }
+function PriceSection({ id }: { id: string }) {
+  return <section className="section-wrap" id={id}><SectionLabel number="—">Hinnasto</SectionLabel><h2>HINNAT AUTON KOON MUKAAN.</h2><p className="section-copy">alk. 34 € · 25 min</p><div className="price-list">{priceRows.map((row, i) => <div className={`price-row${row.top ? " is-top" : ""}`} key={`${row.name}-${i}`}><div className="price-info"><h3>{row.name.toUpperCase()}{row.top ? <span className="price-badge">Suosituin</span> : null}</h3><p>{row.description}</p>{row.time ? <span className="price-time">{row.time}</span> : null}</div>{row.prices ? <div className="price-sizes">{row.prices.map((v, i) => <div key={i}><small>{["Henkilöauto","Farmari / SUV","Pakettiauto"][i]}</small><strong>{v} €</strong></div>)}</div> : <div className="price-sizes"><div className="price-ask"><small>Kesto ja hinta sovitaan</small><strong>Kysy hinta</strong></div></div>}<Button variant="premium" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa <ArrowUpRight size={16} /></a></Button></div>)}</div></section>;
+}
+
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -102,7 +106,7 @@ function Index() {
 
       <section className="section-wrap" id="palvelut"><SectionLabel number="04">Kaikki palvelut</SectionLabel><h2>AUTOSI TARPEET.<br />MEIDÄN PALVELUMME.</h2><div className="directory">{services.map((service, i) => <Button variant="ghost" className="directory-item" id={i === 4 ? "renkaat" : i === 6 ? "huolto" : undefined} key={service.name} onClick={() => setSelectedService(service)}><span className="directory-number">0{i + 1}</span><span className="directory-title">{service.name}<ArrowUpRight size={20} strokeWidth={1.2} /></span></Button>)}</div></section>
 
-      <section className="section-wrap" id="hinnasto"><SectionLabel number="—">Hinnasto</SectionLabel><h2>HINNAT AUTON KOON MUKAAN.</h2><p className="section-copy">alk. 34 € · 25 min</p><div className="price-list">{priceRows.map((row, i) => <div className={`price-row${row.top ? " is-top" : ""}`} key={`${row.name}-${i}`}><div className="price-info"><h3>{row.name.toUpperCase()}{row.top ? <span className="price-badge">Suosituin</span> : null}</h3><p>{row.description}</p>{row.time ? <span className="price-time">{row.time}</span> : null}</div>{row.prices ? <div className="price-sizes">{row.prices.map((v, i) => <div key={i}><small>{["Henkilöauto","Farmari / SUV","Pakettiauto"][i]}</small><strong>{v} €</strong></div>)}</div> : <div className="price-sizes"><div className="price-ask"><small>Kesto ja hinta sovitaan</small><strong>Kysy hinta</strong></div></div>}<Button variant="premium" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa <ArrowUpRight size={16} /></a></Button></div>)}</div></section>
+      <PriceSection id="hinnasto" /><PriceSection id="hinnasto-2" /><PriceSection id="hinnasto-3" /><PriceSection id="hinnasto-4" />
 
       <section className="cta-banner"><div><h2>AUTOSI ANSAITSEE<br />PAREMPAA HUOLENPITOA.</h2><p>Valitse palvelu ja varaa aika muutamassa hetkessä.</p></div>{bookButton(true)}</section>
 

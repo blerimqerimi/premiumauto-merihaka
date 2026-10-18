@@ -7,4 +7,4 @@
 - [x] Connect official booking URL — all "Varaa aika" / "Varaa" buttons open https://varaapalvelu.fi/premium-wash/ajanvaraus/
 - [x] Remove the five unpriced cards as requested
 - [x] Apply supplied wash, wax and tire price-list edits to their selected sections; preserve the fourth section
-- [ ] Add the four autumn offers from the owner’s flyer and verify desktop/mobile layout and booking links
+- [x] Add the four autumn offers from the owner’s flyer and verify desktop/mobile offer layout and booking links

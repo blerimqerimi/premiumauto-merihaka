@@ -17,3 +17,4 @@
 - Price sections receive independent row data and headings through props so edits to one category do not alter the others; price strings preserve owner-supplied formatting and unknown values.
 - Images bundled in the project (not Lovable CDN) so they work on Netlify too.
 - Seasonal offers use their own package data on the index page, separate from regular price lists, so promotional edits never change standard services.
+- Responsive layouts use shrinkable grid tracks and wrap long service names; booking anchors share full-width mobile button styles so phone layouts never depend on button tag names.

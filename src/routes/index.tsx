@@ -102,8 +102,8 @@ function Index() {
     <header className="site-header">
       <Brand />
       <nav className="desktop-nav" aria-label="Päävalikko">{navigation.map(([label, anchor]) => <a key={anchor} href={`#${anchor}`}>{label}</a>)}</nav>
-      <div className="header-actions">{bookButton(true)}<Button className="mobile-toggle" variant="ghost" size="icon" aria-label={menuOpen ? "Sulje valikko" : "Avaa valikko"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button></div>
-      {menuOpen && <nav className="mobile-nav" aria-label="Mobiilivalikko">{navigation.map(([label, anchor]) => <a key={anchor} href={`#${anchor}`} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>}
+      <div className="header-actions">{bookButton(true)}<Button className="mobile-toggle" variant="ghost" size="icon" aria-label={menuOpen ? "Sulje valikko" : "Avaa valikko"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button></div>
+      {menuOpen && <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobiilivalikko">{navigation.map(([label, anchor]) => <a key={anchor} href={`#${anchor}`} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>}
     </header>
 
     <main>

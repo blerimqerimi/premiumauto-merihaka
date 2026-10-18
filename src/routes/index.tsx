@@ -71,7 +71,7 @@ export const tirePriceRows: PriceRow[] = [
   { name: "TASAPAINOTUS", description: "-", prices: [45, 45, 45], time: null, top: false },
   { name: "RENKAIDEN PESU", description: "-", prices: [15, 15, 15], time: null, top: false },
   { name: "VANNETYÖ", description: "Irtorenkaiden allevaihto + tasapainotus", prices: [99, 99, 99], time: "- min", top: false },
-  { name: "RENGASHOTELLI/KAUSI", description: "-", prices: [90, 90, 90], time: "0 min", top: false },
+  { name: "RENGASHOTELLI/KAUSI", description: "-", prices: [69, 69, 69], time: "0 min", top: false },
 ];
 
 const otherPriceRows: PriceRow[] = [

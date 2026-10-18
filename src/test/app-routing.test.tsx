@@ -3,7 +3,7 @@ import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
-import { tirePriceRows, waxPriceRows } from "@/routes/index";
+import { autumnOffers, tirePriceRows, waxPriceRows } from "@/routes/index";
 
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
@@ -18,6 +18,15 @@ describe("App routing", () => {
 });
 
 describe("Owner-supplied category prices", () => {
+  it.each([
+    [0, ["Rengashotelli", "Renkaidenvaihto", "Renkaidenpesu"], 99],
+    [1, ["Tehopesu", "Kovavaha"], 99],
+    [2, ["Tehopesu", "Kovavaha", "Täydellinen sisäpuhdistus"], 149],
+    [3, ["Renkaidenvaihto", "Renkaidenpesu", "Ulko tehopesu"], 79],
+  ])("preserves autumn offer %s package and price", (index, services, price) => {
+    expect(autumnOffers[Number(index)]?.services).toEqual(services);
+    expect(autumnOffers[Number(index)]?.price).toBe(price);
+  });
   it.each([
     [0, [85, "95€", 95]],
     [1, [120, 140, 160]],

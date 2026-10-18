@@ -127,8 +127,17 @@ function Index() {
         <div className="service-cards">{washes.map((wash, i) => <article className="service-card" key={wash.name}><div className="service-card-top"><span>0{i + 1} / AUTONHOITO</span><wash.icon size={20} strokeWidth={1.2} /></div><h3>{wash.name}</h3><p>{wash.description}</p><div className="service-price">{wash.price ? <><strong>{wash.price} €</strong><small>Henkilöauto</small></> : <strong className="custom-price">Katso hinta ajanvarauksesta</strong>}</div><Button variant="premiumOutline" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa aika <ArrowUpRight /></a></Button></article>)}</div>
       </section>
 
+      <section className="section-wrap offers-section" id="tarjoukset" aria-labelledby="offers-title">
+        <SectionLabel number="—">Tarjoukset</SectionLabel>
+        <div className="offers-heading"><h2 id="offers-title">SYKSY-TARJOUS.</h2><span>PREMIUM AUTO / MERIHAKA</span></div>
+        <div className="offers-grid">{autumnOffers.map(offer => <article className="offer-card" key={offer.number}>
+          <div className="offer-top"><h3>TARJOUS #{Number(offer.number)}</h3><span>{offer.number} /</span></div>
+          <ul className="offer-services">{offer.services.map(service => <li key={service}>{service}</li>)}</ul>
+          <div className="offer-bottom"><strong className="offer-price">{offer.price.toFixed(2)}<span>€</span></strong><Button variant="premium" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer" aria-label={`Varaa aika — tarjous ${Number(offer.number)}`}>Varaa aika <ArrowUpRight size={16} /></a></Button></div>
+        </article>)}</div>
+      </section>
+
       <section className="split-feature">
- 
         <div className="feature-image"><img src={workImage} alt="Premium Auton vastaanotto- ja odotustila, jossa palveluiden hinnasto on seinällä" loading="lazy" width={1905} height={1072} /><Button className="video-pill" variant="ghost" asChild><a href="https://www.youtube.com/watch?v=lQsI5fR2dIU" target="_blank" rel="noopener noreferrer"><Play size={17} fill="currentColor" /><span>MEIDÄN TYÖT VIDEOLLA<small>Katso YouTubessa ↗</small></span></a></Button></div>
         <div className="feature-content"><SectionLabel number="02">Työn jälki</SectionLabel><h2>MEIDÄN TYÖMME<br />PUHUVAT<br />PUOLESTAAN.</h2><p className="section-copy">Huolellinen käsityö. Viimeistelty lopputulos. Meille jokainen auto ansaitsee saman huomion — merkistä ja mallista riippumatta.</p><div className="location-label"><MapPin size={13} /> PREMIUM AUTO / MERIHAKA, HELSINKI</div></div>
       </section>

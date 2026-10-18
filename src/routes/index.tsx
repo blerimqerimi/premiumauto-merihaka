@@ -39,6 +39,13 @@ const washes = [
   { name: "KOVAVAHA", description: "Maalipinnan suojaus. Pohjatyöt sisältyvät.", price: null, icon: ShieldCheck },
 ];
 
+export const autumnOffers = [
+  { number: "01", services: ["Rengashotelli", "Renkaidenvaihto", "Renkaidenpesu"], price: 99 },
+  { number: "02", services: ["Tehopesu", "Kovavaha"], price: 99 },
+  { number: "03", services: ["Tehopesu", "Kovavaha", "Täydellinen sisäpuhdistus"], price: 149 },
+  { number: "04", services: ["Renkaidenvaihto", "Renkaidenpesu", "Ulko tehopesu"], price: 79 },
+];
+
 type PriceRow = { name: string; description: string; prices: (number | string)[] | null; time: string | null; top: boolean; badge?: string };
 const priceRows: PriceRow[] = [
   { name: "Peruspesu", description: "Käsinpesu, ovienvälit ja kumimattojen pesu.", prices: [29, 34, 49], time: "25 min", top: false },
@@ -118,6 +125,16 @@ function Index() {
         <SectionLabel number="01">Puhtaampi lähtö</SectionLabel>
         <div className="section-heading"><h2>SUOSITUIMMAT PALVELUT.</h2><p>Valitse autollesi sopiva hoito.<br />Me huolehdimme lopusta.</p></div>
         <div className="service-cards">{washes.map((wash, i) => <article className="service-card" key={wash.name}><div className="service-card-top"><span>0{i + 1} / AUTONHOITO</span><wash.icon size={20} strokeWidth={1.2} /></div><h3>{wash.name}</h3><p>{wash.description}</p><div className="service-price">{wash.price ? <><strong>{wash.price} €</strong><small>Henkilöauto</small></> : <strong className="custom-price">Katso hinta ajanvarauksesta</strong>}</div><Button variant="premiumOutline" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa aika <ArrowUpRight /></a></Button></article>)}</div>
+      </section>
+
+      <section className="section-wrap offers-section" id="tarjoukset" aria-labelledby="offers-title">
+        <SectionLabel number="—">Tarjoukset</SectionLabel>
+        <div className="offers-heading"><h2 id="offers-title">SYKSY-TARJOUS.</h2><span>PREMIUM AUTO / MERIHAKA</span></div>
+        <div className="offers-grid">{autumnOffers.map(offer => <article className="offer-card" key={offer.number}>
+          <div className="offer-top"><h3>TARJOUS #{Number(offer.number)}</h3><span>{offer.number} /</span></div>
+          <ul className="offer-services">{offer.services.map(service => <li key={service}>{service}</li>)}</ul>
+          <div className="offer-bottom"><strong className="offer-price">{offer.price.toFixed(2)}<span>€</span></strong><Button variant="premium" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer" aria-label={`Varaa aika — tarjous ${Number(offer.number)}`}>Varaa aika <ArrowUpRight size={16} /></a></Button></div>
+        </article>)}</div>
       </section>
 
       <section className="split-feature">

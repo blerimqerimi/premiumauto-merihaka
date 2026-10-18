@@ -39,6 +39,13 @@ const washes = [
   { name: "KOVAVAHA", description: "Maalipinnan suojaus. Pohjatyöt sisältyvät.", price: null, icon: ShieldCheck },
 ];
 
+export const autumnOffers = [
+  { number: "01", services: ["Rengashotelli", "Renkaidenvaihto", "Renkaidenpesu"], price: 99 },
+  { number: "02", services: ["Tehopesu", "Kovavaha"], price: 99 },
+  { number: "03", services: ["Tehopesu", "Kovavaha", "Täydellinen sisäpuhdistus"], price: 149 },
+  { number: "04", services: ["Renkaidenvaihto", "Renkaidenpesu", "Ulko tehopesu"], price: 79 },
+];
+
 type PriceRow = { name: string; description: string; prices: (number | string)[] | null; time: string | null; top: boolean; badge?: string };
 const priceRows: PriceRow[] = [
   { name: "Peruspesu", description: "Käsinpesu, ovienvälit ja kumimattojen pesu.", prices: [29, 34, 49], time: "25 min", top: false },
@@ -121,6 +128,7 @@ function Index() {
       </section>
 
       <section className="split-feature">
+ 
         <div className="feature-image"><img src={workImage} alt="Premium Auton vastaanotto- ja odotustila, jossa palveluiden hinnasto on seinällä" loading="lazy" width={1905} height={1072} /><Button className="video-pill" variant="ghost" asChild><a href="https://www.youtube.com/watch?v=lQsI5fR2dIU" target="_blank" rel="noopener noreferrer"><Play size={17} fill="currentColor" /><span>MEIDÄN TYÖT VIDEOLLA<small>Katso YouTubessa ↗</small></span></a></Button></div>
         <div className="feature-content"><SectionLabel number="02">Työn jälki</SectionLabel><h2>MEIDÄN TYÖMME<br />PUHUVAT<br />PUOLESTAAN.</h2><p className="section-copy">Huolellinen käsityö. Viimeistelty lopputulos. Meille jokainen auto ansaitsee saman huomion — merkistä ja mallista riippumatta.</p><div className="location-label"><MapPin size={13} /> PREMIUM AUTO / MERIHAKA, HELSINKI</div></div>
       </section>

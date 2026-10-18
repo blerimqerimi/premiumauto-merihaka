@@ -8,3 +8,4 @@
 - [x] Remove the five unpriced cards as requested
 - [x] Apply supplied wash, wax and tire price-list edits to their selected sections; preserve the fourth section
 - [x] Add the four autumn offers from the owner’s flyer and verify desktop/mobile offer layout and booking links
+- [ ] Optimise every section, navigation, prices and service dialogs for phones and tablets; verify mobile interactions and desktop layout

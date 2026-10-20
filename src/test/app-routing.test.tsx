@@ -44,7 +44,7 @@ describe("Owner-supplied category prices", () => {
     [2, [45, 45, 45]],
     [3, [15, 15, 15]],
     [4, [99, 99, 99]],
-    [5, [90, 90, 90]],
+    [5, [69, 69, 69]],
   ])("preserves tire row %s prices", (index, prices) => {
     expect(tirePriceRows[Number(index)]?.prices).toEqual(prices);
   });

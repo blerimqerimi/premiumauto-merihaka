@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, ArrowDown, MapPin, Clock3, Menu, X, Play, Mail, Sparkles, Droplets, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, ArrowDown, MapPin, Clock3, Menu, X, Play, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import heroImage from "@/assets/hero-porsche.jpg";
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 });
 
 const bookingUrl = "https://varaapalvelu.fi/premium-wash/ajanvaraus/";
-const navigation = [ ["Palvelut", "palvelut"], ["Pesut", "pesut"], ["Pinnoitteet", "pinnoitteet"], ["Renkaat", "renkaat"], ["Huolto", "huolto"], ["Yhteystiedot", "yhteystiedot"] ];
+const navigation = [ ["Palvelut", "palvelut"], ["Pinnoitteet", "pinnoitteet"], ["Renkaat", "renkaat"], ["Huolto", "huolto"], ["Yhteystiedot", "yhteystiedot"] ];
 const services = [
   { name: "Pesut", description: "Huolellinen käsinpesu auton ulkopinnoille. Peruspesu 29 € ja Premiumpesu 34 € henkilöautolle." },
   { name: "Sisäpuhdistukset", description: "Raikas ja siisti sisätila. Kysy autollesi sopivasta sisäpuhdistuksesta ja sen hinnasta." },
@@ -32,11 +32,6 @@ const services = [
   { name: "Tuulilasit", description: "Tuulilasipalvelut autosi tarpeisiin. Kysy lisää korjauksesta tai vaihdosta ja pyydä tarjous." },
   { name: "Huolto", description: "Autohuolto Helsingin Merihaassa. Kerro autosi tiedot ja huollon tarve, niin autamme eteenpäin." },
   { name: "Lasien tummennus", description: "Viimeistele autosi ilme lasien tummennuksella. Kysy vaihtoehdoista ja autokohtaisesta hinnasta." },
-];
-const washes = [
-  { name: "PERUSPESU", description: "Käsinpesu ja kumimattojen pesu.", price: "29", icon: Droplets },
-  { name: "PREMIUMPESU", description: "Peruspesu ja tarvittaessa liuotinpesu.", price: "34", icon: Sparkles },
-  { name: "KOVAVAHA", description: "Maalipinnan suojaus. Pohjatyöt sisältyvät.", price: null, icon: ShieldCheck },
 ];
 
 export const autumnOffers = [
@@ -120,12 +115,6 @@ function Index() {
       </section>
 
       <div className="ticker" aria-label="Käsinpesu, pinnoitteet, rengastyöt, autohuolto, lasien tummennus, tuulilasit"><div className="ticker-track">{[0, 1].map(copy => <div className="ticker-set" key={copy} aria-hidden="true">{["KÄSINPESU", "PINNOITTEET", "RENGASTYÖT", "AUTOHUOLTO", "LASIEN TUMMENNUS", "TUULILASIT"].map(text => <span key={text}>{text}</span>)}</div>)}</div></div>
-
-      <section className="section-wrap" id="pesut">
-        <SectionLabel number="01">Puhtaampi lähtö</SectionLabel>
-        <div className="section-heading"><h2>SUOSITUIMMAT PALVELUT.</h2><p>Valitse autollesi sopiva hoito.<br />Me huolehdimme lopusta.</p></div>
-        <div className="service-cards">{washes.map((wash, i) => <article className="service-card" key={wash.name}><div className="service-card-top"><span>0{i + 1} / AUTONHOITO</span><wash.icon size={20} strokeWidth={1.2} /></div><h3>{wash.name}</h3><p>{wash.description}</p><div className="service-price">{wash.price ? <><strong>{wash.price} €</strong><small>Henkilöauto</small></> : <strong className="custom-price">Katso hinta ajanvarauksesta</strong>}</div><Button variant="premiumOutline" size="premium" asChild><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Varaa aika <ArrowUpRight /></a></Button></article>)}</div>
-      </section>
 
       <section className="section-wrap offers-section" id="tarjoukset" aria-labelledby="offers-title">
         <SectionLabel number="—">Tarjoukset</SectionLabel>

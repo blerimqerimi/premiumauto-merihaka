@@ -45,19 +45,19 @@ type PriceRow = { name: string; description: string; prices: (number | string)[]
 const priceRows: PriceRow[] = [
   { name: "Peruspesu", description: "Käsinpesu, ovienvälit ja kumimattojen pesu.", prices: [29, 34, 49], time: "25 min", top: false },
   { name: "Premiumpesu", description: "Peruspesu ja maalipinnan liuotinpesu.", prices: [39, 44, 52], time: "25 min", top: true },
-  { name: "Nano Pesu", description: "Uusi palvelu!", prices: [39, 49, 59], time: null, top: false },
+  { name: "Nano Pesu", description: "Uusi palvelu!", prices: [39, 39, 59], time: null, top: false },
   { name: "Kevyt Sisäpuhdistus", description: "Lattian, penkkien ja mattojen imurointi sekä kojelaudan pyyhintäpalvelu", prices: [29, 29, 29], time: null, top: false },
-  { name: "Täydellinen Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus\nLemmikkieläinten karvojen poisto alk. 20€", prices: [49, 59, 69], time: "45 min", top: false },
-  { name: "Total Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus, istuimien märkäpesu", prices: [159, 179, 159], time: "60 min", top: false },
+  { name: "Täydellinen Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus\nLemmikkieläinten karvojen poisto alk. 20€", prices: [49, 49, 69], time: "45 min", top: false },
+  { name: "Total Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus, istuimien märkäpesu", prices: [159, 159, 159], time: "60 min", top: false },
 ];
 
 export const waxPriceRows: PriceRow[] = [
   { name: "POLYMATRIX", description: "Kesto 3-5kk", prices: [85, "95€", 95], time: "25 min", top: false },
   { name: "KOVAVAHA", description: "Kesto 6kk vuosi", prices: [120, 140, 160], time: "60 min", top: true, badge: "SUOSITUIN" },
   { name: "NANO VAHA", description: "Kesto 12-18kk", prices: [150, 170, 190], time: null, top: false },
-  { name: "MAALIPINNAN KIILLOTUS", description: "-", prices: ["? €", "? €", "? €"], time: null, top: false },
-  { name: "KERAAMINEN PIINOITE", description: "-", prices: ["? €", "? €", "? €"], time: "? min", top: false },
-  { name: "MYLLYTYS", description: "-", prices: ["? €", "? €", "? €"], time: "? min", top: false },
+  { name: "MAALIPINNAN KIILLOTUS", description: "2 step kiillotus + käsinvahaus", prices: ["199€", "249€", "349€"], time: null, top: false },
+  { name: "KERAAMINEN PIINOITE", description: "alk.", prices: ["499€", "499€", "599€"], time: "? min", top: false },
+  { name: "MYLLYTYS", description: "Tarjous alk.", prices: ["? €", "? €", "? €"], time: "? min", top: false },
 ];
 
 export const tirePriceRows: PriceRow[] = [

@@ -68,4 +68,11 @@ describe("Owner-supplied category prices", () => {
     expect(otherPriceRows).toHaveLength(5);
     expect(otherPriceRows.map((row) => row.name)).not.toContain("Maalipinnan kiillotus");
   });
+  it("publishes the verified Facebook page and never a placeholder link", () => {
+    const facebook = socialLinks.find((link) => link.name === "Facebook");
+    expect(facebook?.url).toBe("https://facebook.com/121431994232898");
+    for (const link of socialLinks) {
+      if (link.url) expect(link.url.startsWith("https://")).toBe(true);
+    }
+  });
 });

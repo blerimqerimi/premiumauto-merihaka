@@ -12,3 +12,4 @@
 - [x] Remove the "Suosituimmat palvelut" wash-card section and its menu link; page now runs hero → ticker → autumn offers
 - [x] Remove the Myllytys card from the wax price list; wax section now shows five cards
 - [x] Duplicate the Total Sisäpuhdistus card in the wash price list; wash section now shows seven cards
+- [x] Remove the Maalipinnan kiillotus card from the "Hinnat muut" price list; that section now shows five cards

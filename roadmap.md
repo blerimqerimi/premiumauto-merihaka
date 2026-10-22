@@ -14,4 +14,4 @@
 - [x] Duplicate the Total Sisäpuhdistus card in the wash price list; wash section now shows seven cards
 - [x] Remove the Maalipinnan kiillotus card from the "Hinnat muut" price list; that section now shows five cards
 - [x] Move the Nahkahoito card after Total Sisäpuhdistus in the wash price list
-- [x] Move the "Työn jälki" block to sit directly before the "Autosi ansaitsee" call-to-action; verified section order, layout and photos
+- [x] Move the "Työn jälki" block to sit directly before the "Autosi ansaitsee" call-to-action; verified section order, layout and photos- [ ] Add TikTok, Instagram and Facebook icons with links to the profile URLs

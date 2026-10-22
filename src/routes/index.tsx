@@ -75,7 +75,6 @@ const otherPriceRows: PriceRow[] = [
   { name: "Tuulilasin vaihto", description: "alk.", prices: [200, 250, 300], time: null, top: false },
   { name: "Umpioiden korjaus", description: "-", prices: [60, 60, 60], time: null, top: false },
   { name: "Ilmastoinnin täyttöhuolto", description: "-", prices: [75, 80, 85], time: "? min", top: false },
-  { name: "Maalipinnan kiillotus", description: "2 step kiillotus + käsinvahaus alk.", prices: [200, 250, 300], time: "?  min", top: false },
 ];
 
 function Brand() {

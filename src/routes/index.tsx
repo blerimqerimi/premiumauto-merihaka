@@ -83,8 +83,8 @@ function TikTokGlyph({ size = 18 }: { size?: number }) {
 
 export const socialLinks: { name: string; url: string; icon: React.ComponentType<{ size?: number }> }[] = [
   { name: "Facebook", url: "https://facebook.com/121431994232898", icon: Facebook },
-  { name: "Instagram", url: "", icon: Instagram },
-  { name: "TikTok", url: "", icon: TikTokGlyph },
+  { name: "Instagram", url: "https://www.instagram.com/premium.auto1", icon: Instagram },
+  { name: "TikTok", url: "https://www.tiktok.com/@premiumauto1", icon: TikTokGlyph },
 ];
 
 function SocialLinks() {

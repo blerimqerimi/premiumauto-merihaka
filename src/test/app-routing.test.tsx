@@ -42,7 +42,7 @@ describe("Owner-supplied category prices", () => {
     [1, [35, 35, 35]],
     [2, [45, 45, 45]],
     [3, [15, 15, 15]],
-    [4, [99, 99, 99]],
+    [4, [99, 109, "119€"]],
     [5, [69, 69, 69]],
   ])("preserves tire row %s prices", (index, prices) => {
     expect(tirePriceRows[Number(index)]?.prices).toEqual(prices);
@@ -63,5 +63,9 @@ describe("Owner-supplied category prices", () => {
   });
   it("sets tire hotel duration to zero", () => {
     expect(tirePriceRows[5]?.time).toBe("0 min");
+  });
+  it("drops the polishing card from the other-services list", () => {
+    expect(otherPriceRows).toHaveLength(5);
+    expect(otherPriceRows.map((row) => row.name)).not.toContain("Maalipinnan kiillotus");
   });
 });

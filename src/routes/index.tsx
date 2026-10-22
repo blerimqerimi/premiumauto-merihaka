@@ -48,8 +48,8 @@ const priceRows: PriceRow[] = [
   { name: "Nano Pesu", description: "Uusi palvelu!", prices: [39, 39, 59], time: null, top: false },
   { name: "Kevyt Sisäpuhdistus", description: "Lattian, penkkien ja mattojen imurointi sekä kojelaudan pyyhintäpalvelu", prices: [29, 29, 29], time: null, top: false },
   { name: "Täydellinen Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus\nLemmikkieläinten karvojen poisto alk. 20€", prices: [49, 49, 69], time: "45 min", top: false },
-  { name: "NAHKAHOITO", description: "-", prices: ["89€", "89 €", "89 €"], time: "?", top: false },
   { name: "Total Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus, istuimien märkäpesu", prices: [159, 159, 159], time: "60 min", top: false },
+  { name: "NAHKAHOITO", description: "-", prices: ["89€", "89 €", "89 €"], time: "?", top: false },
 ];
 
 export const waxPriceRows: PriceRow[] = [

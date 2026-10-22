@@ -350,6 +350,7 @@ h2 { color: var(--primary); font-family: 'Barlow Condensed', sans-serif; font-si
   .footer-links a { display: flex; align-items: center; min-height: 44px; }
   .contact-details a { display: inline-flex; align-items: center; min-height: 44px; }
   .footer-bottom { font-size: 12px; }
+  .footer-main h4 { font-size: 12px; }
   .price-info p { font-size: 14px; white-space: pre-line; }
   .price-sizes { gap: 6px; }
   .price-sizes div { min-width: 0; padding: 12px 3px; }

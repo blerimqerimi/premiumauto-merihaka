@@ -51,6 +51,10 @@ describe("Owner-supplied category prices", () => {
   it("sets Kovavaha service duration to 60 minutes", () => {
     expect(waxPriceRows[1]?.time).toBe("60 min");
   });
+  it("drops the Myllytys card from the wax list", () => {
+    expect(waxPriceRows).toHaveLength(5);
+    expect(waxPriceRows.map((row) => row.name)).not.toContain("MYLLYTYS");
+  });
   it("keeps ceramic coating duration unknown", () => {
     expect(waxPriceRows[4]?.time).toBe("? min");
   });

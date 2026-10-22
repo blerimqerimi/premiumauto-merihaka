@@ -125,10 +125,6 @@ function Index() {
         </article>)}</div>
       </section>
 
-      <section className="split-feature">
-        <div className="feature-image"><img src={workImage} alt="Premium Auton vastaanotto- ja odotustila, jossa palveluiden hinnasto on seinällä" loading="lazy" width={1905} height={1072} /><Button className="video-pill" variant="ghost" asChild><a href="https://www.youtube.com/watch?v=lQsI5fR2dIU" target="_blank" rel="noopener noreferrer"><Play size={17} fill="currentColor" /><span>MEIDÄN TYÖT VIDEOLLA<small>Katso YouTubessa ↗</small></span></a></Button></div>
-        <div className="feature-content"><SectionLabel number="02">Työn jälki</SectionLabel><h2>MEIDÄN TYÖMME<br />PUHUVAT<br />PUOLESTAAN.</h2><p className="section-copy">Huolellinen käsityö. Viimeistelty lopputulos. Meille jokainen auto ansaitsee saman huomion — merkistä ja mallista riippumatta.</p><div className="location-label"><MapPin size={13} /> PREMIUM AUTO / MERIHAKA, HELSINKI</div></div>
-      </section>
 
       <section className="section-wrap value-section"><div><div className="section-label">ENEMMÄN KUIN AUTOPESU</div><h2>YKSI OSOITE.<br />KOKO AUTOLLE.</h2><p className="section-copy">Täyden palvelun autopesula Helsingin Merihaassa. Käsinpesusta maalipinnan suojaukseen, renkaista huoltoihin.</p></div><div className="value-list">{["Käsinpesu & autonhoito", "Rengastyöt & huolto", "Tuulilasit & lasien tummennus"].map((text, i) => <div className="value-item" key={text}><span>0{i + 1}</span>{text}<ArrowUpRight className="ml-auto" size={18} strokeWidth={1.2} /></div>)}</div></section>
 
@@ -140,6 +136,11 @@ function Index() {
       <section className="section-wrap" id="palvelut"><SectionLabel number="04">Kaikki palvelut</SectionLabel><h2>AUTOSI TARPEET.<br />MEIDÄN PALVELUMME.</h2><div className="directory">{services.map((service, i) => <Button variant="ghost" className="directory-item" id={i === 4 ? "renkaat" : i === 6 ? "huolto" : undefined} key={service.name} onClick={() => setSelectedService(service)}><span className="directory-number">0{i + 1}</span><span className="directory-title">{service.name}<ArrowUpRight size={20} strokeWidth={1.2} /></span></Button>)}</div></section>
 
       <PriceSection id="hinnasto" title="HINNAT PESUT." /><PriceSection id="hinnasto-2" title="HINNAT VAHAUKSET." rows={waxPriceRows} /><PriceSection id="hinnasto-3" title="HINNAT RENGASTYÖT." rows={tirePriceRows} /><PriceSection id="hinnasto-4" title="HINNAT MUUT." rows={otherPriceRows} />
+
+      <section className="split-feature">
+        <div className="feature-image"><img src={workImage} alt="Premium Auton vastaanotto- ja odotustila, jossa palveluiden hinnasto on seinällä" loading="lazy" width={1905} height={1072} /><Button className="video-pill" variant="ghost" asChild><a href="https://www.youtube.com/watch?v=lQsI5fR2dIU" target="_blank" rel="noopener noreferrer"><Play size={17} fill="currentColor" /><span>MEIDÄN TYÖT VIDEOLLA<small>Katso YouTubessa ↗</small></span></a></Button></div>
+        <div className="feature-content"><SectionLabel number="02">Työn jälki</SectionLabel><h2>MEIDÄN TYÖMME<br />PUHUVAT<br />PUOLESTAAN.</h2><p className="section-copy">Huolellinen käsityö. Viimeistelty lopputulos. Meille jokainen auto ansaitsee saman huomion — merkistä ja mallista riippumatta.</p><div className="location-label"><MapPin size={13} /> PREMIUM AUTO / MERIHAKA, HELSINKI</div></div>
+      </section>
 
       <section className="cta-banner"><div><h2>AUTOSI ANSAITSEE<br />PAREMPAA HUOLENPITOA.</h2><p>Valitse palvelu ja varaa aika muutamassa hetkessä.</p></div>{bookButton(true)}</section>
 

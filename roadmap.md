@@ -10,3 +10,4 @@
 - [x] Add the four autumn offers from the owner’s flyer and verify desktop/mobile offer layout and booking links
 - [x] Optimise every section, navigation, prices and service dialogs for phones and tablets; verified 320/390/768/1024/1280px layouts, menu and dialogs, no horizontal overflow or page errors; 22 tests passed
 - [x] Remove the "Suosituimmat palvelut" wash-card section and its menu link; page now runs hero → ticker → autumn offers
+- [x] Remove the Myllytys card from the wax price list; wax section now shows five cards

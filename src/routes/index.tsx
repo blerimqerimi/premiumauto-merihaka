@@ -57,7 +57,6 @@ export const waxPriceRows: PriceRow[] = [
   { name: "NANO VAHA", description: "Kesto 12-18kk", prices: [150, 170, 190], time: null, top: false },
   { name: "MAALIPINNAN KIILLOTUS", description: "2 step kiillotus + käsinvahaus", prices: ["199€", "249€", "349€"], time: null, top: false },
   { name: "KERAAMINEN PIINOITE", description: "alk.", prices: ["499€", "499€", "599€"], time: "? min", top: false },
-  { name: "MYLLYTYS", description: "Tarjous alk.", prices: ["? €", "? €", "? €"], time: "? min", top: false },
 ];
 
 export const tirePriceRows: PriceRow[] = [

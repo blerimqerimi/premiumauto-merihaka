@@ -13,3 +13,4 @@
 - [x] Remove the Myllytys card from the wax price list; wax section now shows five cards
 - [x] Duplicate the Total Sisäpuhdistus card in the wash price list; wash section now shows seven cards
 - [x] Remove the Maalipinnan kiillotus card from the "Hinnat muut" price list; that section now shows five cards
+- [x] Move the Nahkahoito card after Total Sisäpuhdistus in the wash price list

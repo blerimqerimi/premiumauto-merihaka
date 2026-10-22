@@ -268,10 +268,10 @@ h2 { color: var(--primary); font-family: 'Barlow Condensed', sans-serif; font-si
 .map-panel .premium-button { font-size: 10px; gap: 10px; }
 .site-footer { border-top: 1px solid var(--border); padding: 55px 5% 22px; }
 .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; margin-bottom: 50px; }
-.footer-main p, .footer-main a:not(.brand) { color: var(--muted-foreground); font-size: 11px; line-height: 1.9; }
-.footer-main h4 { color: var(--primary); font-size: 10px; font-weight: 500; margin: 0 0 19px; }
+.footer-main p, .footer-main a:not(.brand) { color: var(--muted-foreground); font-size: 13px; line-height: 1.9; }
+.footer-main h4 { color: var(--primary); font-size: 12px; font-weight: 500; margin: 0 0 19px; }
 .footer-links { display: flex; flex-direction: column; gap: 6px; }
-.footer-bottom { border-top: 1px solid var(--border); padding-top: 21px; display: flex; justify-content: space-between; gap: 20px; color: var(--muted-foreground); font-size: 8px; }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 21px; display: flex; justify-content: space-between; gap: 20px; color: var(--muted-foreground); font-size: 11px; }
 .booking-dialog { width: calc(100% - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; overscroll-behavior: contain; background: var(--card); padding: 36px; }
 .booking-dialog > button { width: 44px; height: 44px; display: grid; place-items: center; top: 4px; right: 4px; }
 .booking-dialog h2 { padding-right: 20px; overflow-wrap: anywhere; }
@@ -346,10 +346,10 @@ h2 { color: var(--primary); font-family: 'Barlow Condensed', sans-serif; font-si
   .coating-actions .premium-button { padding-inline: 16px; gap: 12px; }
   .coating-tags span { font-size: 12px; }
   .cta-banner > .premium-button { width: 100%; justify-content: space-between; }
-  .footer-main p, .footer-main a:not(.brand) { font-size: 14px; overflow-wrap: anywhere; }
+  .footer-main p, .footer-main a:not(.brand) { font-size: 15px; overflow-wrap: anywhere; }
   .footer-links a { display: flex; align-items: center; min-height: 44px; }
   .contact-details a { display: inline-flex; align-items: center; min-height: 44px; }
-  .footer-bottom { font-size: 11px; }
+  .footer-bottom { font-size: 12px; }
   .price-info p { font-size: 14px; white-space: pre-line; }
   .price-sizes { gap: 6px; }
   .price-sizes div { min-width: 0; padding: 12px 3px; }

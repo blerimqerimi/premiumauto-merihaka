@@ -69,7 +69,7 @@ export const tirePriceRows: PriceRow[] = [
   { name: "RENGASHOTELLI/KAUSI", description: "-", prices: [69, 69, 69], time: "0 min", top: false },
 ];
 
-const otherPriceRows: PriceRow[] = [
+export const otherPriceRows: PriceRow[] = [
   { name: "Tuulilasin korjaus", description: "12kk takuu", prices: [60, 60, 60], time: "? min", top: false },
   { name: "Otsonointi ja hajupoisto", description: "-", prices: [90, 90, 90], time: "? min", top: true },
   { name: "Tuulilasin vaihto", description: "alk.", prices: [200, 250, 300], time: null, top: false },

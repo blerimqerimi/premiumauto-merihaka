@@ -48,7 +48,7 @@ const priceRows: PriceRow[] = [
   { name: "Nano Pesu", description: "Uusi palvelu!", prices: [39, 39, 59], time: null, top: false },
   { name: "Kevyt Sisäpuhdistus", description: "Lattian, penkkien ja mattojen imurointi sekä kojelaudan pyyhintäpalvelu", prices: [29, 29, 29], time: null, top: false },
   { name: "Täydellinen Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus\nLemmikkieläinten karvojen poisto alk. 20€", prices: [49, 49, 69], time: "45 min", top: false },
-  { name: "Total Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus, istuimien märkäpesu", prices: [159, 159, 159], time: "60 min", top: false },
+  { name: "NAHKAHOITO", description: "-", prices: ["89€", "89 €", "89 €"], time: "?", top: false },
   { name: "Total Sisäpuhdistus", description: "Perusteellinen sisäpuhdistus, istuimien märkäpesu", prices: [159, 159, 159], time: "60 min", top: false },
 ];
 
@@ -65,7 +65,7 @@ export const tirePriceRows: PriceRow[] = [
   { name: "TUBELESS/RENGASPAIKKAUS", description: "-", prices: [35, 35, 35], time: "25 min", top: true, badge: "SUOSITUIN" },
   { name: "TASAPAINOTUS", description: "-", prices: [45, 45, 45], time: null, top: false },
   { name: "RENKAIDEN PESU", description: "-", prices: [15, 15, 15], time: null, top: false },
-  { name: "VANNETYÖ", description: "Irtorenkaiden allevaihto + tasapainotus", prices: [99, 99, 99], time: "- min", top: false },
+  { name: "VANNETYÖ", description: "Irtorenkaiden allevaihto + tasapainotus", prices: [99, 109, "119€"], time: "- min", top: false },
   { name: "RENGASHOTELLI/KAUSI", description: "-", prices: [69, 69, 69], time: "0 min", top: false },
 ];
 

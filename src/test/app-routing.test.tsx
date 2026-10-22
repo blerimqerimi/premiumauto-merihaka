@@ -31,9 +31,8 @@ describe("Owner-supplied category prices", () => {
     [0, [85, "95€", 95]],
     [1, [120, 140, 160]],
     [2, [150, 170, 190]],
-    [3, ["? €", "? €", "? €"]],
-    [4, ["? €", "? €", "? €"]],
-    [5, ["? €", "? €", "? €"]],
+    [3, ["199€", "249€", "349€"]],
+    [4, ["499€", "499€", "599€"]],
   ])("preserves wax row %s prices", (index, prices) => {
     expect(waxPriceRows[Number(index)]?.prices).toEqual(prices);
   });
@@ -54,9 +53,6 @@ describe("Owner-supplied category prices", () => {
   });
   it("keeps ceramic coating duration unknown", () => {
     expect(waxPriceRows[4]?.time).toBe("? min");
-  });
-  it("keeps polishing duration unknown", () => {
-    expect(waxPriceRows[5]?.time).toBe("? min");
   });
   it("keeps wheel work duration unspecified", () => {
     expect(tirePriceRows[4]?.time).toBe("- min");

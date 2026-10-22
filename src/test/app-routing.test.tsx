@@ -3,7 +3,7 @@ import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
-import { autumnOffers, otherPriceRows, tirePriceRows, waxPriceRows } from "@/routes/index";
+import { autumnOffers, otherPriceRows, socialLinks, tirePriceRows, waxPriceRows } from "@/routes/index";
 
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
@@ -67,5 +67,12 @@ describe("Owner-supplied category prices", () => {
   it("drops the polishing card from the other-services list", () => {
     expect(otherPriceRows).toHaveLength(5);
     expect(otherPriceRows.map((row) => row.name)).not.toContain("Maalipinnan kiillotus");
+  });
+  it("publishes the verified Facebook page and never a placeholder link", () => {
+    const facebook = socialLinks.find((link) => link.name === "Facebook");
+    expect(facebook?.url).toBe("https://facebook.com/121431994232898");
+    for (const link of socialLinks) {
+      if (link.url) expect(link.url.startsWith("https://")).toBe(true);
+    }
   });
 });

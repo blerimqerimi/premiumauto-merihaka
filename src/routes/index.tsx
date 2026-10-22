@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, ArrowDown, MapPin, Clock3, Menu, X, Play, Mail } from "lucide-react";
+import { ArrowUpRight, ArrowDown, MapPin, Clock3, Menu, X, Play, Mail, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import heroImage from "@/assets/hero-porsche.jpg";
@@ -77,6 +77,22 @@ export const otherPriceRows: PriceRow[] = [
   { name: "Ilmastoinnin täyttöhuolto", description: "-", prices: [75, 80, 85], time: "? min", top: false },
 ];
 
+function TikTokGlyph({ size = 18 }: { size?: number }) {
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.27 0 .53.04.78.12V9.77a5.66 5.66 0 0 0-.78-.05 5.66 5.66 0 1 0 5.66 5.66V8.87a7.35 7.35 0 0 0 4.29 1.38V7.16a4.28 4.28 0 0 1-3.21-1.34z" /></svg>;
+}
+
+export const socialLinks: { name: string; url: string; icon: React.ComponentType<{ size?: number }> }[] = [
+  { name: "Facebook", url: "https://facebook.com/121431994232898", icon: Facebook },
+  { name: "Instagram", url: "", icon: Instagram },
+  { name: "TikTok", url: "", icon: TikTokGlyph },
+];
+
+function SocialLinks() {
+  const live = socialLinks.filter(link => link.url.length > 0);
+  if (live.length === 0) return null;
+  return <div className="social-links">{live.map(({ name, url, icon: Icon }) => <a key={name} href={url} target="_blank" rel="noopener noreferrer" aria-label={`Premium Auto ${name}`} title={`Premium Auto ${name}`}><Icon size={18} /></a>)}</div>;
+}
+
 function Brand() {
   return <a href="#" className="brand" aria-label="Premium Auto — etusivu"><img className="brand-logo" src={brandLogo} alt="Premium Auto" width={500} height={300} /></a>;
 }
@@ -144,7 +160,7 @@ function Index() {
 
       <section className="cta-banner"><div><h2>AUTOSI ANSAITSEE<br />PAREMPAA HUOLENPITOA.</h2><p>Valitse palvelu ja varaa aika muutamassa hetkessä.</p></div>{bookButton(true)}</section>
 
-      <section className="section-wrap contact-section" id="yhteystiedot"><div><SectionLabel number="05">Löydät meidät täältä</SectionLabel><h2>NÄHDÄÄN<br />MERIHAASSA.</h2><div className="contact-details"><div><div className="detail-label">Tervetuloa meille</div><p>Haapaniemenkatu 7–9<br />00530 Helsinki</p><a href="tel:+358442400064">+358 44 240 00 64</a><br /><a href="mailto:info@premiumwash.fi">info@premiumwash.fi</a></div><div><div className="detail-label">Aukioloajat</div><div className="opening-row"><span>Ma–Pe</span><span>8:00–18:00</span></div><div className="opening-row"><span>La</span><span>10:00–17:00</span></div><div className="opening-row"><span>Su</span><span>12:00–17:00*</span></div><div className="season-note">* Rengassesongin aikana</div></div></div></div><div className="contact-image"><img src={entranceImage} alt="Ilmakuva Helsingin Meriahasta ja Sörnäisistä 1970-luvulta" loading="lazy" width={1500} height={1100} /><div className="map-panel"><div><span>HELSINKI / MERIHAKA</span><p>Haapaniemenkatu 7–9</p></div><Button variant="premium" size="premium" asChild><a href="https://www.google.com/maps/search/?api=1&query=Haapaniemenkatu+7-9+00530+Helsinki" target="_blank" rel="noopener noreferrer">Reittiohjeet <ArrowUpRight /></a></Button></div></div></section>
+      <section className="section-wrap contact-section" id="yhteystiedot"><div><SectionLabel number="05">Löydät meidät täältä</SectionLabel><h2>NÄHDÄÄN<br />MERIHAASSA.</h2><div className="contact-details"><div><div className="detail-label">Tervetuloa meille</div><p>Haapaniemenkatu 7–9<br />00530 Helsinki</p><a href="tel:+358442400064">+358 44 240 00 64</a><br /><a href="mailto:info@premiumwash.fi">info@premiumwash.fi</a><SocialLinks /></div><div><div className="detail-label">Aukioloajat</div><div className="opening-row"><span>Ma–Pe</span><span>8:00–18:00</span></div><div className="opening-row"><span>La</span><span>10:00–17:00</span></div><div className="opening-row"><span>Su</span><span>12:00–17:00*</span></div><div className="season-note">* Rengassesongin aikana</div></div></div></div><div className="contact-image"><img src={entranceImage} alt="Ilmakuva Helsingin Meriahasta ja Sörnäisistä 1970-luvulta" loading="lazy" width={1500} height={1100} /><div className="map-panel"><div><span>HELSINKI / MERIHAKA</span><p>Haapaniemenkatu 7–9</p></div><Button variant="premium" size="premium" asChild><a href="https://www.google.com/maps/search/?api=1&query=Haapaniemenkatu+7-9+00530+Helsinki" target="_blank" rel="noopener noreferrer">Reittiohjeet <ArrowUpRight /></a></Button></div></div></section>
     </main>
 
      <footer className="site-footer"><div className="footer-main"><div><Brand /><p>Täyden palvelun autonhoito.<br />Helsingin Merihaassa.</p></div><div><h4>LÖYDÄ MEIDÄT</h4><p>Haapaniemenkatu 7–9<br />00530 Helsinki</p><a href="tel:+358442400064">+358 44 240 00 64</a><br /><a href="mailto:info@premiumwash.fi">info@premiumwash.fi</a></div><div><h4>AUKIOLOAJAT</h4><p>Ma–Pe 8:00–18:00<br />La 10:00–17:00<br />Su 12:00–17:00*</p><p>* Rengassesongin aikana</p></div><div><h4>PIKALINKIT</h4><div className="footer-links">{navigation.slice(0, 4).map(([label, anchor]) => <a href={`#${anchor}`} key={anchor}>{label}</a>)}</div></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} PREMIUM AUTO</span><span>Y-tunnus: 3349811-6</span><a href="https://premiumwash.fi" target="_blank" rel="noopener noreferrer">Alku ↗</a></div></footer>
